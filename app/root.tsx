@@ -9,7 +9,7 @@ import {
 import "~/styles/common/root.css";
 import "~/styles/common/tailwind.css";
 
-import { UserRoundPen, Check, Info, PersonStanding } from "lucide-react"
+import { UserRoundPen, Check, Info, BicepsFlexed, PersonStanding } from "lucide-react"
 import { Label } from "~/components/ui/label"
 import { Button } from "~/components/ui/button"
 import { Input } from "~/components/ui/input"
@@ -209,13 +209,13 @@ export default function App() {
           <Drawer>
             <DrawerTrigger asChild>
               <Button variant="outline">
-                <UserRoundPen /> { hasProfile ? `Update your profile` : `Set your profile` }
+                <UserRoundPen /> { hasProfile ? `Update my profile` : `Create my profile` }
               </Button>
             </DrawerTrigger>
             <DrawerContent>
               <div className="mx-auto w-full max-w-xl">
                 <DrawerHeader>
-                  <DrawerTitle>{ hasProfile ? `Update your profile` : `Set your profile` }</DrawerTitle>
+                  <DrawerTitle>{ hasProfile ? `Update my profile` : `Create my profile` }</DrawerTitle>
                   <DrawerDescription>We use these metrics to calculate your total daily energy expenditure (TDEE) based on the Katch-McArdle Formula.</DrawerDescription>
                 </DrawerHeader>
                 <div className="p-4">
@@ -266,7 +266,14 @@ export default function App() {
                         />
                       </div>
                       <div>
-                        <Label>Body Fat %</Label>
+                        <TooltipProvider delayDuration={300}>
+                          <Tooltip>
+                            <TooltipTrigger><Label>Body Fat %</Label></TooltipTrigger>
+                            <TooltipContent className="bg-black max-w-[200px]">
+                              <p>If you don't know your body fat percentage, we can calculate your TDEE using a general value of 33%.</p>
+                            </TooltipContent>
+                          </Tooltip>   
+                        </TooltipProvider>
                         <Input 
                           aria-label="Body fat percentae"
                           id="body-fat-percentage"
@@ -275,7 +282,7 @@ export default function App() {
                           type="number" 
                           max="999"
                           min="0"
-                          defaultValue={latestProfile?.bodyFatPercentage || 25}
+                          defaultValue={latestProfile?.bodyFatPercentage || 33}
                         />
                       </div>
                     </div>
@@ -309,20 +316,20 @@ export default function App() {
             <>
               <div className="grid max-sm:max-w-[92vw] sm:min-w-[500px] rounded-lg border overflow-hidden bg-white">
                 <div className="flex flex-wrap gap-2 items-center justify-left justify-between p-5">
-                  <h2 className="text-xs uppercase tracking-wide font-semibold w-full">Your recent profile</h2>
-                  <span className="flex items-end gap-1">
+                  <h2 className="text-xs uppercase tracking-wide font-semibold w-full">My recent profile</h2>
+                  <span className="flex max-sm:flex-[45%] items-end gap-1">
                     <span className="text-2xl font-semibold leading-none">{latestProfile!.weight}</span>
                     <span className="text-xs text-muted-foreground">lbs</span> 
                   </span>
-                  <span className="flex items-end gap-1">
+                  <span className="flex max-sm:flex-[45%] items-end gap-1">
                     <span className="text-2xl font-semibold leading-none">{latestProfile!.bodyFatPercentage}%</span>
                     <span className="text-xs text-muted-foreground">body fat</span> 
                   </span>
-                  <span className="flex items-end gap-1">
+                  <span className="flex max-sm:flex-[45%] items-end gap-1">
                     <span className="text-2xl font-semibold leading-none first-letter:capitalize">{latestProfile!.activityLevel}</span>
                     <span className="text-xs text-muted-foreground">activity</span> 
                   </span>
-                  <span className="flex items-end gap-1">
+                  <span className="flex max-sm:flex-[45%] items-end gap-1">
                     <span className="text-2xl font-semibold leading-none">{latestProfile!.age}</span>
                     <span className="text-xs text-muted-foreground">y.o.</span> 
                   </span>
@@ -416,11 +423,12 @@ export default function App() {
                   <CarouselNext />
                 </Carousel>
               </div>
-              <p className="max-sm:max-w-[92vw] max-w-full sm:min-w-[500px] bg-yellow-50 border border-yellow-900/10 text-yellow-900 text-sm px-4 py-2 rounded-lg shadow-sm text-center">
-                It is <strong>not recommended</strong> to consume less than 1,200 calories a day.
+              <p className="fixed bottom-4 left-1/2 -translate-x-1/2 max-sm:max-w-[92vw] max-w-full sm:min-w-[500px] bg-yellow-50 border border-yellow-900/10 text-yellow-900 text-sm px-4 py-2 rounded-lg shadow-sm text-center">
+                * It is <strong>not recommended</strong> to consume less than 1,200 calories a day. *
               </p>
             </> 
           )}
+
         </div>
         <ScrollRestoration />
         <Scripts />
