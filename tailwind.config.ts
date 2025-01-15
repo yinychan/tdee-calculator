@@ -3,6 +3,7 @@ import type { Config } from 'tailwindcss'
 export default {
   darkMode: ["class"],
   content: [
+    "./index.html",
     './pages/**/*.{js,jsx,ts,tsx}',
     './components/**/*.{js,jsx,ts,tsx}',
     './app/**/*.{js,jsx,ts,tsx}',
@@ -83,3 +84,5 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
+
+

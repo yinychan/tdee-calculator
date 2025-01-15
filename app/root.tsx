@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import {
   Form,
   Meta,
+  Links,
   Scripts,
   ScrollRestoration
 } from "@remix-run/react";
@@ -198,6 +199,7 @@ export default function App() {
           content="width=device-width, initial-scale=1"
         />
         <Meta />
+        <Links />
       </head>
       <body className="bg-stone-100">
         <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
@@ -423,8 +425,8 @@ export default function App() {
                   <CarouselNext />
                 </Carousel>
               </div>
-              <p className="fixed bottom-4 left-1/2 -translate-x-1/2 max-sm:max-w-[92vw] max-w-full sm:min-w-[500px] bg-yellow-50 border border-yellow-900/10 text-yellow-900 text-sm px-4 py-2 rounded-lg shadow-sm text-center">
-                * It is <strong>not recommended</strong> to consume less than 1,200 calories a day. *
+              <p className="fixed bottom-4 left-1/2 -translate-x-1/2 max-sm:max-w-[92vw] max-w-full sm:min-w-[600px] bg-yellow-50 border border-yellow-900/10 text-yellow-900 text-sm px-4 py-2 rounded-lg shadow-sm text-center">
+                * It is <strong>not recommended</strong> to consume less than an average of 1,200 calories per day. *
               </p>
             </> 
           )}
