@@ -1,0 +1,154 @@
+@use "../../styles/helpers/variables" as *;
+@use "../../styles/helpers/typography" as *;
+@use "../../styles/helpers/themes" as *;
+
+/* BLOCKS */
+.main {
+  padding: var(--image-left-right-offset);
+
+  &:not(
+    [class*="Sponsors-module"], 
+    [class*="HeroAnimation-module"]
+  ) {
+    > img, 
+    > :global(.gatsby-image-wrapper:not([class*="icon"])) {
+      @include visual-full-width;
+
+      > div {
+        max-width: 100% !important;
+      }
+    }
+  }
+
+  &:has(> :global(.gatsby-image-wrapper:not([class*="icon"]))), 
+  &:has(> [class*="--dates"]) {
+    @media screen and (min-width: $breakpointDesktop) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  @include popup-shape-previous-sibling;
+}
+
+/* theme */
+.black-on-white {
+  @include black-on-white;
+}
+
+.black-on-off-white {
+  @include black-on-off-white;
+}
+
+.white-on-black {
+  @include white-on-black;
+}
+
+.white-on-green {
+  @include white-on-green;
+}
+
+.white-on-dark-green {
+  @include white-on-dark-green;
+}
+
+.green-on-white {
+  @include green-on-white;
+}
+
+.green-on-off-white {
+  @include green-on-off-white;
+}
+
+.white-on-dark-orange {
+  @include white-on-dark-orange;
+}
+
+.orange-on-white {
+  @include orange-on-white;
+}
+
+.orange-on-off-white {
+  @include orange-on-off-white;
+}
+
+.white-on-orange {
+  @include white-on-orange;
+}
+
+.white-on-dark-yellow {
+  @include white-on-dark-yellow;
+}
+
+.yellow-on-white {
+  @include yellow-on-white;
+}
+
+.yellow-on-off-white {
+  @include yellow-on-off-white;
+}
+
+.white-on-yellow {
+  @include white-on-yellow;
+}
+
+.white-and-brown-on-black {
+  @include white-and-brown-on-black;
+}
+
+.brown-on-white {
+  @include brown-on-white;
+}
+
+.white-on-dark-pink {
+  @include white-on-dark-pink;
+}
+
+.white-on-pink {
+  @include white-on-pink;
+}
+
+.pink-on-white {
+  @include pink-on-white;
+}
+
+.pink-on-off-white {
+  @include pink-on-off-white;
+}
+
+/* justify */
+.content-center {
+  text-align: center;
+}
+
+/* align */
+.container-center {
+  @include max-width-center;
+}
+
+/* type */
+.popout {
+  @include popout-shape;
+
+  &:has(> img) {
+    
+  }
+}
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+
+  $sizes: 370, 500, 600, 800, 1200;
+
+  @each $size in $sizes {
+    &--#{$size} {
+      max-width: #{$size}px;
+    }
+  }
+
+  > :global(.gatsby-image-wrapper), 
+  > img {
+    margin-bottom: calc(var(--base-grid) * 5);
+  }
+}

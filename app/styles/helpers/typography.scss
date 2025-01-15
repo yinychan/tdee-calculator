@@ -1,0 +1,118 @@
+/***** 2024 *****/
+
+/***** Body *****/
+@mixin type-deck-regular {
+  font-family: "Publish Gothic Expanded", serif;
+  font-size: var(--base-font-size);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.35;
+  letter-spacing: 0.54px;
+}
+
+/***** Nav/Links *****/
+
+@mixin type-button-large($color: inherit) {
+  font-family: "Publish Gothic Expanded", serif;
+  font-size: var(--base-font-size);
+  font-weight: var(--font-weight-demibold);
+  line-height: 1;
+  letter-spacing: 0.54px;
+
+  &:hover {
+    filter: grayscale(0) opacity(100%);
+    transform: var(--base-scale);
+  }
+  &:active {
+    transform: unset;
+  }
+
+  &:has(> svg) {
+    color: unset;
+  }
+}
+
+@mixin type-link-text($color: inherit) {
+  font-family: "Publish Gothic Expanded";
+  font-size: calc(var(--base-font-size) * 0.78);
+  font-style: normal;
+  font-weight: var(--font-weight-demibold);
+  line-height: 1.57; /* 157.143% */
+  letter-spacing: 0.7px;
+
+  &:hover {
+    color: $color;
+    filter: grayscale(0) opacity(100%);
+
+    &:after {
+      transform: translateX(calc(var(--base-grid) * 0.5));
+    }
+  }
+
+  &--with-arrow {
+    display: flex;
+    align-items: center;
+    gap: var(--base-grid);
+
+    &:after {
+      content: var(--arrow-right-small-white);
+      width: 18px;
+      height: 15px;
+    }
+  }
+}
+
+
+/***** Titles & Headers *****/
+
+@mixin type-heading-xlarge {
+  font-family: "field-gothic-xcondensed", serif;
+  font-size: calc(var(--base-font-size) * 4);
+  font-weight: var(--font-weight-bold);
+  line-height: 0.95;
+  letter-spacing: 2.16px;
+}
+@mixin type-heading-large {
+  font-family: "field-gothic-xcondensed", serif;
+  font-size: calc(var(--base-font-size) * 2.67);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+@mixin type-heading-regular {
+  font-family: "field-gothic-condensed", serif;
+  font-size: calc(var(--base-font-size) * 1.78);
+  font-weight: var(--font-weight-demibold);
+  line-height: 1;
+}
+@mixin type-heading-eyebrow {
+  font-family: "Publish Gothic Expanded", serif;
+  font-size: calc(var(--base-font-size) * 0.67);
+  font-weight: var(--font-weight-extrabold);
+  line-height: 1.05;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/***** Captions *****/
+
+@mixin type-caption-regular {
+  font-family: "Publish Gothic Expanded", serif;
+  font-size: var(--base-font-size);
+  font-weight: var(--font-weight-demibold);
+  line-height: 1.33;
+  letter-spacing: 0.54px;
+}
+@mixin type-caption-small {
+  font-family: "Publish Gothic Expanded", serif;
+  font-size: calc(var(--base-font-size) * 0.78);
+  font-weight: var(--font-weight-demibold);
+  line-height: 1.33;
+  letter-spacing: 0.54px;
+}
+
+
+
+
+
+
+
+
